@@ -3,6 +3,8 @@ This project was generated with Generator-M-Ionic v1.12.0. For more info visit t
 
 ## How to run on browser ##
 ```
+sudo npm install
+sudo bower install
 sudo gulp watch --env=dev-v1
 sudo gulp watch --env=dev-v2
 sudo gulp watch --env=dev-v3
@@ -10,7 +12,7 @@ sudo gulp watch --env=dev-v3
 
 ## How to deploy on android mobile
 
-Ensure the adb is installed. 
+Ensure that the adb is installed. 
 ```
 gulp --cordova "run android" --env=dev-v1
 gulp --cordova "run android" --env=dev-v2
