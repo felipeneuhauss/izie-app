@@ -1,0 +1,60 @@
+<ion-view view-title="{{customer.name}}">
+    <ion-content padding="true" class="has-header">
+        <!-- content goes here -->
+        <ion-list>
+            <form name="customerForm" ng-submit="saveCustomer(customerForm.$valid)" novalidate>
+
+                <div class="item item-image" ng-click="addImage()">
+                    <img ng-src="{{urlForImage()}}">
+                </div>
+
+                <label class="item item-input">
+                    <input type="text" placeholder="Nome" name="name" ng-model="customer.name" required>
+                </label>
+                <div ng-show="submitted" ng-messages="customerForm.name.$error" class="assertive" role="alert">
+                    <div ng-message="required">O nome é obrigatório</div>
+                </div>
+                <label class="item item-input">
+                    <input type="date" placeholder="Data de nascimento" name="birthday" ng-model="customer.original_birthday" required />
+                </label>
+                <div ng-show="submitted" ng-messages="customerForm.birthday.$error" class="assertive" role="alert">
+                    <div ng-message="required">A data de nascimento é obrigatória</div>
+                </div>
+                <label class="item item-input item-select" >
+                    <div class="input-label">
+                        Sexo
+                    </div>
+                    <select ng-model="customer.gender" name="gender" ng-options="gender.name for gender in genders" required>
+                    </select>
+                </label>
+                <div ng-show="submitted" ng-messages="customerForm.gender.$error" class="assertive" role="alert">
+                    <div ng-message="required">Informe o sexo</div>
+                </div>
+                <label class="item item-input">
+                    <input type="text" placeholder="CPF" ng-cpf name="cpf" ng-model="customer.cpf" required ui-br-cpf-mask>
+                </label>
+                <div ng-show="submitted" ng-messages="customerForm.cpf.$error" class="assertive" role="alert">
+                    <div ng-message="required">Informe o CPF válido</div>
+                </div>
+                <label class="item item-input">
+                    <input type="email" placeholder="E-mail" name="email" ng-model="customer.email"
+                           required ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/">
+                </label>
+                <div ng-show="submitted" ng-messages="customerForm.email.$error" class="assertive" role="alert">
+                    <div ng-message="required">E-mail é obrigatório</div>
+                    <div ng-message="pattern">E-mail inválido</div>
+                </div>
+
+                <button class="button button-block button-positive" type="submit">
+                    Salvar
+                </button>
+
+                <a class="button button-block button-calm" ng-if="customer.id" ui-sref="main.addresses"
+                   ng-disabled="customer.id === null || customer.id === undefined">
+                    Endereços
+                </a>
+
+            </form>
+        </ion-list>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,59 @@
+<ion-view view-title="{{address.address}}">
+    <ion-content padding="true" class="has-header">
+        <!-- content goes here -->
+        <ion-list>
+            <form name="addressForm" ng-submit="saveAddress(addressForm.$valid)" novalidate>
+
+                <label class="item item-input">
+                    <input type="text" placeholder="CEP" name="zip_code" ng-model="address.zip_code" ui-br-cep-mask required>
+                </label>
+                <div ng-show="submitted" ng-messages="addressForm.zip_code.$error" class="assertive" role="alert">
+                    <div ng-message="required">O CEP é obrigatório</div>
+                </div>
+                <label class="item item-input">
+                    <input type="text" placeholder="Endereço" name="address" ng-model="address.address" required>
+                </label>
+                <div ng-show="submitted" ng-messages="addressForm.address.$error" class="assertive" role="alert">
+                    <div ng-message="required">O endereço é obrigatório</div>
+                </div>
+                <label class="item item-input">
+                    <input type="text" placeholder="Complemento" name="complement" ng-model="address.complement">
+                </label>
+
+                <label class="item item-input">
+                    <input type="text" placeholder="Número" name="number" ng-model="address.number" required>
+                </label>
+                <div ng-show="submitted" ng-messages="addressForm.number.$error" class="assertive" role="alert">
+                    <div ng-message="required">O Número é obrigatório</div>
+                </div>
+
+                <label class="item item-input item-select" >
+                    <div class="input-label">
+                        Estado
+                    </div>
+                    <select ng-change="getCities(address.state.id)" ng-model="address.state" name="state" ng-options="state.name for state in states" required>
+                    </select>
+                </label>
+                <div ng-show="submitted" ng-messages="addressForm.state.$error" class="assertive" role="alert">
+                    <div ng-message="required">Informe o estado</div>
+                </div>
+
+
+                <label class="item item-input item-select" >
+                    <div class="input-label">
+                        Cidade
+                    </div>
+                    <select ng-model="address.city" name="state" ng-options="city.name for city in cities" required>
+                    </select>
+                </label>
+                <div ng-show="submitted" ng-messages="addressForm.city.$error" class="assertive" role="alert">
+                    <div ng-message="required">Informe a cidade</div>
+                </div>
+
+                <button class="button button-block button-positive" type="submit">
+                    Salvar
+                </button>
+            </form>
+        </ion-list>
+    </ion-content>
+</ion-view>

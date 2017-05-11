@@ -1,0 +1,27 @@
+<ion-view view-title="Endereços de {{customer.name}}">
+  <ion-nav-buttons side="right">
+    <button class="button button-icon ion-plus" ui-sref="main.address-form">
+    </button>
+  </ion-nav-buttons>
+  <ion-content>
+    <!-- content goes here -->
+    <ion-list>
+      <ion-item ng-repeat="address in addressList"
+        href="#/main/addresses/{{address.id}}"
+        class="item-remove-animate item-avatar item-icon-right"
+        type="item-text-wrap">
+        <h2>{{address.address}}</h2>
+        <p>{{address.zip_code}}, {{address.location}} </p>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+      </ion-item>
+      <ion-item ng-if="addressList.length == 0"
+                class="item-remove-animate item-avatar item-icon-right"
+                type="item-text-wrap">
+        <h2>Nenhum endereço cadastrado ainda</h2>
+        <p>Clique no ícone acima para adicionar</p>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+      </ion-item>
+    </ion-list>
+
+  </ion-content>
+</ion-view>

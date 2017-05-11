@@ -1,0 +1,21 @@
+<ion-view view-title="Clientes">
+  <ion-nav-buttons side="right">
+    <button class="button button-icon ion-plus" ui-sref="main.customer-form">
+    </button>
+  </ion-nav-buttons>
+  <ion-content>
+    <!-- content goes here -->
+    <ion-list>
+      <ion-item ng-repeat="customer in customerList"
+        href="#/main/customers/{{customer.id}}"
+        class="item-remove-animate item-avatar item-icon-right"
+        type="item-text-wrap">
+        <img ng-src="{{customer.picture}}">
+        <h2>{{customer.name}}</h2>
+        <p>{{customer.birthday}}</p>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+      </ion-item>
+    </ion-list>
+
+  </ion-content>
+</ion-view>

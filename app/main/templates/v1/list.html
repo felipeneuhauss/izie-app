@@ -1,0 +1,15 @@
+<ion-view view-title="Clientes">
+  <ion-content>
+    <!-- content goes here -->
+    <ion-list>
+      <ion-item ng-repeat="customer in customerList track by $index"
+        href="#/main/list/detail/{{customer.id}}"
+        class="item-remove-animate item-avatar item-icon-right"
+        type="item-text-wrap">
+        <img src="main/assets/images/yo@2x.png">
+        <h2>{{customer.name}}</h2>
+        <ion-delete-button class="button-assertive icon ion-trash-a" ng-click="deleteCustomer(customer, $index)"></ion-delete-button>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,5 @@
+{
+  "VERSION": 2,
+  "SERVER_URL": "https://izie-api.herokuapp.com/api/v3/",
+  "SOME_OTHER_URL": "/postman-proxy"
+}
