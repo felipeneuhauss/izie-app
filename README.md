@@ -1,6 +1,23 @@
 # izie-app
 This project was generated with Generator-M-Ionic v1.12.0. For more info visit the [repository](https://github.com/mwaylabs/generator-m-ionic) or check out the README below.
 
+## How to run on browser ##
+```
+sudo gulp watch --env=dev-v1
+sudo gulp watch --env=dev-v2
+sudo gulp watch --env=dev-v3
+```
+
+## How to deploy on android mobile
+
+Ensure the adb is installed. 
+```
+gulp --cordova "run android" --env=dev-v1
+gulp --cordova "run android" --env=dev-v2
+gulp --cordova "run android" --env=dev-v3
+```
+
+
 # Generator-M-Ionic v1.12.0
 
 [![NPM version](http://img.shields.io/npm/v/generator-m-ionic.svg?style=flat-square)][npm-url]
@@ -166,3 +183,4 @@ Start by reading our:
 
 ## License
 Code licensed under MIT. Docs under Apache 2. PhoneGap is a trademark of Adobe.
+=======
